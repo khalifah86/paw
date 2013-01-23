@@ -16,14 +16,14 @@ Database config & libs directory:
 ---
 * libs/
   * db/
-    * config.js       //-- MongoDB configurations
-    * connection.js   //-- Connect to MongoDB Server
+    * --> config.js       //-- MongoDB configurations
+    * --> connection.js   //-- Connect to MongoDB Server
   * routes/
-    * reshandle.js    //-- request routing and responds handle
+    * --> reshandle.js    //-- request routing and responds handle
 * public/
   * api/
-    * index.html      //-- routing dir/file when user browse to: http://localhost:8899/api
+    * --> index.html      //-- routing dir/file when user browse to: http://localhost:8899/api
   * page/
-    * {place any page directory & html}
+    * --> { place any page directory & html }
 * server.js           //-- the main of node app
   

@@ -1,0 +1,509 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="description" content="Your Website Your menu Article title Posted on Mon Dec 31 12:28:55 2012 by Author Name" />
+    <title>Point.me - Main</title>
+    
+    <link rel="shortcut icon" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+	<link rel="author" href="https://plus.google.com/u/110713646341961256563/about" />
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.css" />
+	
+	<!-- CSSs -->
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/960.css" />
+		<link rel="stylesheet" href="css/icons.css">
+		<link rel="stylesheet" href="css/tipsy.css">
+		<link rel="stylesheet" href="css/formalize.css">
+		<link rel="stylesheet" href="css/prettyPhoto.css">
+		<link rel="stylesheet" href="css/jquery-ui-1.8.18.custom.css">
+		<link rel="stylesheet" href="css/chosen.css">
+		<link rel="stylesheet" href="css/ui.spinner.css">
+		<link rel="stylesheet" href="css/jquery.jqplot.min.css" />
+		<link rel="stylesheet" href="css/fullcalendar.css" />
+		<link rel="stylesheet" href="css/jquery.miniColors.css" />
+		<link rel="stylesheet" href="css/elrte.min.css" />
+		<link rel="stylesheet" href="css/elfinder.css" />
+		<link rel="stylesheet" href="css/main.css" />
+	
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.ie.css" />
+    <![endif]-->
+    
+    <style>
+        @import url(http://fonts.googleapis.com/css?family=Yesteryear);
+        
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0px;
+            padding: 0px;
+            
+            overflow: hidden;
+            font-family: "Open Sans",Helvetica,sans-serif;
+            font-weight: 400;
+        }
+        body {
+            background-image: url("img/koding-new-bg.png");
+            background-repeat: repeat-x;
+        }
+        header.nav-cont {
+            padding: 8px;
+            background-color: rgba(224, 246, 255, 0.1);
+            
+            top: 0px;
+            left: 0px;
+            bottom: 128px;
+            width: 240px;
+			height: 100%;
+            position: absolute;
+            
+            font-size:9pt;
+        }
+		nav.main-nav {
+			position: relative;
+			height: 190px;
+			background-color: rgba(0,0,0,0.3);
+			-webkit-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.3);
+            box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.3);
+		}
+        nav.main-nav > div.nav-menu {
+            border: 1px solid transparent;
+            border-width: 1px 0;
+            cursor: pointer;
+            margin: 0px;
+            overflow: visible;
+            outline: 0;
+            vertical-align: baseline;
+            background: transparent;
+            display: block;
+        }
+        nav.main-nav > div.nav-menu > .title {
+            margin: 0;
+            padding: 1px 0 1px 18px;
+            font-weight: 300 !important;
+            font-size: 14px;
+            line-height: 35px;
+            overflow: hidden;
+            color: #adadad !important;
+            text-shadow: none !important;
+            display: block;
+            text-decoration: none;
+        }
+		nav.main-nav > div.nav-menu > a.title:hover {
+			background-color: rgba(255, 255, 255, 0.100);
+		}
+		nav.main-nav > div.nav-menu > a.title:link,
+		nav.main-nav > div.nav-menu > a.title:visited {
+			background-color: transparent;
+		}
+		nav.main-nav > div.nav-menu > a.title > span.glyph {
+            display: block;
+            float: left;
+            margin: -1px 16px 0px -8px;
+            background-color: transparent;
+            background-repeat: no-repeat;
+            width: 30px;
+            height: 30px;
+        }
+        span.nav-menu.home {
+            /*background-position: 0 -20px;*/
+        }
+		nav.notification {
+			padding: 0px 8px 0 8px;
+			position: absolute;
+			left: 0px;
+			right: 0px;
+			top: 204px;
+			bottom: 0px;
+			overflow: scroll;
+			height: 480px;
+		}
+		nav.notification > div.notify-item {
+			/*border: 1px dotted rgba(255,255,255, .3);*/
+            cursor: pointer;
+            margin: 4px 0px 2px 0px;
+			padding: 4px;
+            overflow: visible;
+            vertical-align: baseline;
+            background: transparent;
+            display: block;
+			height: 60px;
+			-webkit-box-shadow: 0px 0px 2px 0px rgba(255,255,255,0.3);
+            box-shadow: 0px 0px 2px 0px rgba(255,255,255,0.3);
+		}
+		div.notify-item > a.title > span.glyph {
+            display: block;
+            float: left;
+            margin: -1px 16px 0px 10px;
+            background-color: transparent;
+            background-repeat: no-repeat;
+			color: red;
+            width: 30px;
+            height: 30px;
+        }
+        section.body-cont {
+            background-color: rgba(255, 255, 255, 0.99);
+            z-index: 2;
+            
+            padding: 8px;
+            left: 52px;
+            right: 0px;
+            top: 0px;
+            bottom: 24px;
+            position: absolute;
+            
+            text-shadow: 1px 1px 1px #FCFCFC;
+            /*background: #E2E2E2 url("https://koding.com/images/finder-back.gif") repeat left top;*/
+            -webkit-transition: left .3s linear;
+            -moz-transition: left .3s linear;
+            -o-transition: left .3s linear;
+            -ms-transition: left .3s linear;
+            transition: left .3s linear;
+            
+            -webkit-box-shadow: 0 3px 4px 3px rgba(0,0,0,0.15);
+            box-shadow: 0 3px 4px 3px rgba(0,0,0,0.15);
+        }
+        section.body-cont.expanded {
+            left: 256px;
+        }
+        
+        section.body-cont > #map {
+            background-color: rgba(255, 255, 255, 0.8);
+            z-index: 0;
+            
+            top: 0px;
+            left: 0px;
+            bottom: 0px;
+            right: 0px;
+            position: absolute;
+        }
+        section.body-cont > #infos {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 8px;
+            margin: 0px 8px 0px 0px;
+            width: 500px;
+            z-index: 99;
+            right: 0px;
+            position: absolute;
+            float: right;
+            
+            text-align: right;
+            text-size: 0.6em;
+        }
+        
+        aside.body-cont {
+            padding: 0px 8px 8px 8px;
+            background-color: rgba(0, 0, 0, 0.3);
+            z-index: 1;
+            
+            left: 15px;
+            bottom: 0px;
+            height: 119px;
+            width: 225px;
+            position: absolute;
+			float: left;
+            margin: -1px 16px 0px -8px;
+			-webkit-box-shadow: 0 3px 4px 3px rgba(0,0,0,0.15);
+            box-shadow: 0 3px 4px 3px rgba(0,0,0,0.15);
+            
+            font-size: 0.7em;
+            color: #ddd;
+        }
+        footer.body-cont {
+            background-color: rgba(237, 237, 237, 0.99);
+            z-index: 3;
+            
+            left: 52px;
+            bottom: 0px;
+            right: 0px;
+            height: 24px;
+            position: absolute;
+            
+            font-size: 0.7em;
+            color: #000;
+            
+            text-shadow: 1px 1px 1px #FCFCFC;
+            /* background: #E2E2E2 url("https://koding.com/images/finder-back.gif") repeat left top; */
+            -webkit-transition: left .3s linear;
+            -moz-transition: left .3s linear;
+            -o-transition: left .3s linear;
+            -ms-transition: left .3s linear;
+            transition: left .3s linear;
+        }
+        footer.body-cont.expanded {
+            left: 256px;
+        }
+        footer > div {
+            padding-top: 5px;
+            
+            height: 100%;
+            text-align: center;
+        }
+		.separator-line {
+			height: 1px;
+			margin: 4px 0 0 0;
+			padding: 0px 16px 0 16px;
+			-webkit-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.5);
+            box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.5);
+		}
+		.separator-line-light {
+			height: 1px;
+			margin: 4px 0 0 0;
+			padding: 0px 20px 0 16px;
+			-webkit-box-shadow: 0px 0px 5px 0px rgba(255,255,255,0.5);
+		}
+    </style>
+    
+    <!-- In <head> -->
+    <script>(function(w,d,u){w.readyQ=[];w.bindReadyQ=[];function p(x,y){if(x=="ready"){w.bindReadyQ.push(y);}else{w.readyQ.push(x);}};var a={ready:p,bind:p};w.$=w.jQuery=function(f){if(f===d||f===u){return a}else{p(f)}}})(window,document)</script>
+</head>
+    
+<body>
+    <header class="nav-cont">
+		<nav class="main-nav">
+			<div class="nav-menu">
+				<a class="title"><span class="glyph map-pin"></span> Point.me</a></div>
+			<div class="nav-menu">
+				<a class="title"><span class="glyph list"></span> Last Activity</a></div>
+			<div class="nav-menu">
+				<a class="title"><span class="glyph search"></span> Explore</a></div>
+			<div class="nav-menu">
+				<a class="title"><span class="glyph like"></span> Badges</a></div>
+			<div class="nav-menu">
+				<a class="title" href="index.html"><span class="glyph logout"></span> Logout</a>
+			</div>
+		</nav>
+		<div class="separator-line"></div>
+		<nav class="notification">
+			<div class="notify-item"><a class="title"><span class="glyph tag"></span> Notification</a></div>
+			<div class="notify-item"><a class="title"><span class="glyph tag"></span> Notification</a></div>
+			<div class="notify-item"><a class="title"><span class="glyph tag"></span> Notification</a></div>
+			<div class="notify-item"><a class="title"><span class="glyph tag"></span> Notification</a></div>
+			<div class="notify-item"><a class="title"><span class="glyph tag"></span> Notification</a></div>
+			<div class="notify-item"><a class="title"><span class="glyph tag"></span> Notification</a></div>
+			<div class="notify-item"><a class="title"><span class="glyph tag"></span> Notification</a></div>
+			<div class="notify-item"><a class="title"><span class="glyph tag"></span> Notification</a></div>
+			<div class="notify-item"><a class="title"><span class="glyph tag"></span> Notification</a></div>
+			<div class="notify-item"><a class="title"><span class="glyph tag"></span> Notification</a></div>
+			<div class="notify-item"><a class="title"><span class="glyph tag"></span> Notification</a></div>
+			<div class="notify-item"><a class="title"><span class="glyph tag"></span> Notification</a></div>
+			<div class="notify-item"><a class="title"><span class="glyph tag"></span> Notification</a></div>
+			<div class="notify-item"><a class="title"><span class="glyph tag"></span> Notification</a></div>
+			<div class="notify-item"><a class="title"><span class="glyph tag"></span> Notification</a></div>
+			<div class="notify-item"><a class="title"><span class="glyph tag"></span> Notification</a></div>
+			<div class="notify-item"><a class="title"><span class="glyph tag"></span> Notification</a></div>
+			<div class="notify-item"><a class="title"><span class="glyph tag"></span> Notification</a></div>
+			<div class="notify-item"><a class="title"><span class="glyph tag"></span> Notification</a></div>
+			<div class="notify-item"><a class="title"><span class="glyph tag"></span> Notification</a></div>
+		</nav>
+    </header>
+    <section class="body-cont">
+       <div id="map"></div>
+			<div class="alert grey air" style="width: 450px">
+				<div class="box-content">
+					<div class="field fullwidth">
+						<select class="chosen" id="where-categories" data-placeholder="Location ?" multiple>
+							<option>Bandung</option>
+							<option>Jakarta</option>
+							<option>Yogyakarta</option>
+							<option>Surabaya</option>
+							<option>Medan</option>
+						</select>
+						<div class="field fullwidth">
+							<select class="chosen" id="post-categories" data-placeholder="Looking for ?" multiple>
+								<option>Food</option>
+								<option>Coffe</option>
+								<option>Shop</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<!--- Option list --->                                    
+				<div class="box-content no-inner-space">
+					<ul class="userlist">
+						<li>
+							<div class="avatar"><img src="img/thumbs/media4.jpg" width="40" height="40" alt="avatar" /></div>
+							<div class="info-l">
+								<a href="#" class="title">Ngopdul</a>
+								<span>Jl. Purnawarman, Bandung</span>
+							</div>
+							<div class="info-r">
+								<span class="title">Telephone</span>
+								<span>444 3440000</span>
+							</div>
+						</li>
+						<li>
+							<div class="avatar"><img src="img/thumbs/media6.jpg" width="40" height="40" alt="avatar" /></div>
+							<div class="info-l">
+								<a href="#" class="title">Rumah Kopi</a>
+								<span>Jl. Sesuatu, Bandung</span>
+							</div>
+							<div class="info-r">
+								<span class="title">Telephone</span>
+								<span>444 3440002</span>
+							</div>
+						</li>
+						<li>
+							<div class="avatar"><img src="img/thumbs/media7.jpg" width="40" height="40" alt="avatar" /></div>
+							<div class="info-l">
+								<a href="#" class="title">Kosan 36</a>
+								<span>Jl. Tubagus ismail Dalam, Bandung</span>
+							</div>
+							<div class="info-r">
+								<span class="title">Telephone</span>
+								<span>444 3440003</span>
+							</div>
+						</li>
+						<li>
+							<div class="avatar"><img src="img/thumbs/media4.jpg" width="40" height="40" alt="avatar" /></div>
+							<div class="info-l">
+								<a href="#" class="title">Ngopdul</a>
+								<span>Jl. Purnawarman, Bandung</span>
+							</div>
+							<div class="info-r">
+								<span class="title">Telephone</span>
+								<span>444 3440000</span>
+							</div>
+						</li>
+						<li>
+							<div class="avatar"><img src="img/thumbs/media6.jpg" width="40" height="40" alt="avatar" /></div>
+							<div class="info-l">
+								<a href="#" class="title">Rumah Kopi</a>
+								<span>Jl. Sesuatu, Bandung</span>
+							</div>
+							<div class="info-r">
+								<span class="title">Telephone</span>
+								<span>444 3440002</span>
+							</div>
+						</li>
+						<li>
+							<div class="avatar"><img src="img/thumbs/media7.jpg" width="40" height="40" alt="avatar" /></div>
+							<div class="info-l">
+								<a href="#" class="title">Kosan 36</a>
+								<span>Jl. Tubagus ismail Dalam, Bandung</span>
+							</div>
+							<div class="info-r">
+								<span class="title">Telephone</span>
+								<span>444 3440003</span>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+    </section>
+    <aside class="body-cont">
+		<div>
+			<h2>My Profile</h2>
+			<div class="avatar" style="position: inherit"><img src="img/thumbs/media4.jpg" width="40" height="40" alt="avatar" /></div>
+		</div>
+    </aside>
+    <footer class="body-cont">
+        <div>Copyright 2013 Point.Me ©</div>
+    </footer>
+    
+    <script>
+    	$(document).bind("ready", function () {
+			/* console.log("Example D: $(document).bind(\"ready\", handler)"); */
+		});
+		$(document).ready(function () {
+			/* console.log("Example A: $(document).ready(handler)"); */
+            
+			$('#btnExp').click(function(){
+                $('section').attr('class', 'body-cont expanded');
+                $('footer').attr('class', 'body-cont expanded');
+			});
+            
+            $('#btnCol').click(function(){
+                $('section').attr('class', 'body-cont collapsed');
+                $('footer').attr('class', 'body-cont collapsed');
+    		});
+            
+            $('nav').hover(
+                function() {
+                    $('section').attr('class', 'body-cont expanded');
+                    $('footer').attr('class', 'body-cont expanded');
+                },
+                function() {
+                    $('section').attr('class', 'body-cont collapsed');
+                    $('footer').attr('class', 'body-cont collapsed');
+                }
+            )
+		});
+		$().ready(function () {
+			/* console.log("Example B: $().ready(handler)"); */
+		});
+		$(function(){
+			/* console.log("Example C: $(handler)"); */
+		});
+	</script>	
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js?ver=3.5"></script>
+	<!-- In <body> (just after jQuery) -->
+	<script>(function($,d){$.each(readyQ,function(i,f){$(f)});$.each(bindReadyQ,function(i,f){$(d).bind("ready",f)})})(jQuery,document)</script>
+    <script type="text/javascript" src="http://cdn.leafletjs.com/leaflet-0.5/leaflet.js"></script>
+    <script type="text/javascript">
+        var map = L.map('map');
+        var strLoc = 'Jakarta,Indonesia';
+        
+        $.getJSON('http://nominatim.openstreetmap.org/search?format=json&limit=5&q='+strLoc, function(data) {  
+            if (data.length > 1) {
+                if (data[0].boundingbox != undefined) {
+                    map = map.setView([ data[0].lat, data[0].lon ], 30);
+                    map = map.fitBounds([
+                        [data[0].boundingbox[0], data[0].boundingbox[2]],
+                        [data[0].boundingbox[1], data[0].boundingbox[3]]
+                    ]);
+                } else {
+                    map = map.setView([ data[0].lat, data[0].lon ], 20);
+                }
+            } 
+        });
+        
+        //map = L.map('map').setView([ loc.lat, loc.lng ], 15);
+        L.tileLayer('http://{s}.tile.cloudmade.com/e4c0e4bd3b1e4f0ebf214b60f4b34f5d/997/256/{z}/{x}/{y}.png', {
+            attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+            maxZoom: 14
+        }).addTo(map);
+    </script>
+	
+		<script src="js/jquery.js"></script>
+		<script src="js/jquery-ui-1.8.18.custom.min.js"></script>
+		<script src="js/jquery.tipsy.js"></script>
+		<script src="js/jquery.formalize.min.js"></script>
+		<script src="js/jquery.modal.js"></script>
+		<script src="js/prefixfree.min.js"></script>
+		<script src="js/datables/js/jquery.dataTables.min.js"></script>
+		<script src="js/jquery.prettyPhoto.js"></script>
+		<script src="js/jquery.autogrowtextarea.js"></script>
+		<script src="js/jquery.easing.1.3.js"></script>
+		<script src="js/jquery.fileinput.js"></script>
+		<script src="js/chosen.jquery.min.js"></script>
+		<script src="js/ui.checkBox.js"></script>
+		<script src="js/ui.spinner.min.js"></script>
+		<script src="js/jquery.loading.js"></script>
+		<script src="js/jquery.path.js"></script>
+		<script src="js/jqPlot/jquery.jqplot.min.js"></script>
+		<script src="js/jqPlot/plugins/jqplot.pieRenderer.min.js"></script>
+		<script src="js/jqPlot/plugins/jqplot.cursor.min.js"></script>
+		<!-- # -->
+		<script src="js/jqPlot/plugins/jqplot.highlighter.min.js"></script>
+		<script src="js/jqPlot/plugins/jqplot.dragable.min.js"></script>
+		<script src="js/jqPlot/plugins/jqplot.dateAxisRenderer.min.js"></script>
+		<script src="js/jqPlot/plugins/jqplot.ohlcRenderer.min.js"></script>
+		<script src="js/jqPlot/plugins/jqplot.trendline.min.js"></script>
+		<script src="js/jqPlot/plugins/jqplot.barRenderer.min.js"></script>
+		<script src="js/jqPlot/plugins/jqplot.categoryAxisRenderer.min.js"></script>
+		<script src="js/jqPlot/plugins/jqplot.pointLabels.min.js"></script>
+		<!-- /# -->
+		<script src="js/fullcalendar.min.js"></script>
+		<script src="js/jquery.miniColors.min.js"></script>
+		<script src="js/jquery.maskedinput-1.3.min.js"></script>
+		<script src="js/jquery-ui-timepicker-addon.js"></script>
+		<script src="js/elrte.min.js"></script>
+		<script src="js/elfinder.min.js"></script>
+		<script src="js/jquery.validate.min.js"></script>
+		<script src="js/jquery.metadata.js"></script>
+		<script src="js/main.js"></script>
+</body>
+</html>

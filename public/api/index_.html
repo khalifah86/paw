@@ -1,0 +1,248 @@
+	<!DOCTYPE html>
+	<html>
+	
+	<head>
+		<meta charset="UTF-8" />
+		<title>Point.me</title>
+		
+		<!-- CSSs -->
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/960.css" />
+		<link rel="stylesheet" href="css/icons.css">
+		<link rel="stylesheet" href="css/tipsy.css">
+		<link rel="stylesheet" href="css/formalize.css">
+		<link rel="stylesheet" href="css/prettyPhoto.css">
+		<link rel="stylesheet" href="css/jquery-ui-1.8.18.custom.css">
+		<link rel="stylesheet" href="css/chosen.css">
+		<link rel="stylesheet" href="css/ui.spinner.css">
+		<link rel="stylesheet" href="css/jquery.jqplot.min.css" />
+		<link rel="stylesheet" href="css/fullcalendar.css" />
+		<link rel="stylesheet" href="css/jquery.miniColors.css" />
+		<link rel="stylesheet" href="css/elrte.min.css" />
+		<link rel="stylesheet" href="css/elfinder.css" />
+		<link rel="stylesheet" href="css/main.css" />
+		
+		<!-- leaflet css-->
+		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4/leaflet.css" />
+		<style>
+			#map {
+				bottom: 31px;
+				top: 64px;
+				position: absolute;
+				/*height: 400px;*/
+				width: 100%;
+			}
+		</style>
+		
+		<!-- JAVASCRIPTs -->
+		<!--[if lt IE 9]>
+			<script language="javascript" type="text/javascript" src="js/jqPlot/excanvas.min.js"></script>
+			<script language="javascript" type="text/javascript" src="js/html5shiv.js"></script>
+		<![endif]-->
+		<script src="js/jquery.js"></script>
+		<script src="js/jquery-ui-1.8.18.custom.min.js"></script>
+		<script src="js/jquery.tipsy.js"></script>
+		<script src="js/jquery.formalize.min.js"></script>
+		<script src="js/jquery.modal.js"></script>
+		<script src="js/prefixfree.min.js"></script>
+		<script src="js/datables/js/jquery.dataTables.min.js"></script>
+		<script src="js/jquery.prettyPhoto.js"></script>
+		<script src="js/jquery.autogrowtextarea.js"></script>
+		<script src="js/jquery.easing.1.3.js"></script>
+		<script src="js/jquery.fileinput.js"></script>
+		<script src="js/chosen.jquery.min.js"></script>
+		<script src="js/ui.checkBox.js"></script>
+		<script src="js/ui.spinner.min.js"></script>
+		<script src="js/jquery.loading.js"></script>
+		<script src="js/jquery.path.js"></script>
+		<script src="js/jqPlot/jquery.jqplot.min.js"></script>
+		<script src="js/jqPlot/plugins/jqplot.pieRenderer.min.js"></script>
+		<script src="js/jqPlot/plugins/jqplot.cursor.min.js"></script>
+		<!-- # -->
+		<script src="js/jqPlot/plugins/jqplot.highlighter.min.js"></script>
+		<script src="js/jqPlot/plugins/jqplot.dragable.min.js"></script>
+		<script src="js/jqPlot/plugins/jqplot.dateAxisRenderer.min.js"></script>
+		<script src="js/jqPlot/plugins/jqplot.ohlcRenderer.min.js"></script>
+		<script src="js/jqPlot/plugins/jqplot.trendline.min.js"></script>
+		<script src="js/jqPlot/plugins/jqplot.barRenderer.min.js"></script>
+		<script src="js/jqPlot/plugins/jqplot.categoryAxisRenderer.min.js"></script>
+		<script src="js/jqPlot/plugins/jqplot.pointLabels.min.js"></script>
+		<!-- /# -->
+		<script src="js/fullcalendar.min.js"></script>
+		<script src="js/jquery.miniColors.min.js"></script>
+		<script src="js/jquery.maskedinput-1.3.min.js"></script>
+		<script src="js/jquery-ui-timepicker-addon.js"></script>
+		<script src="js/elrte.min.js"></script>
+		<script src="js/elfinder.min.js"></script>
+		<script src="js/jquery.validate.min.js"></script>
+		<script src="js/jquery.metadata.js"></script>
+		<script src="js/main.js"></script>
+		
+		<!-- leaflet js -->
+		<script src="http://cdn.leafletjs.com/leaflet-0.4/leaflet.js"></script>
+		<script>
+			$(document).ready(function(){
+					var map = L.map('map').setView([-6.194486,106.847534], 13);
+					L.tileLayer('http://{s}.tile.cloudmade.com/af817ad16efa4a1786e3f390591cb8ad/997/256/{z}/{x}/{y}.png', {
+						attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+						maxZoom: 18
+					}).addTo(map);
+				});			
+		</script>
+		
+	</head>
+	<body>
+		<!-- wrapper -->
+		<div id="wrapper" >
+			<header>
+				<div class="container_12" >
+					<div class="grid_12">
+						<!-- navigation menu -->
+						<nav class="main-nav">
+							<ul>
+								<li class="active"><a href="dashboard.html" title="Dashboard"><span class="glyph map-pin"></span> Point.me</a></li>
+								<li>
+									<a href="#" title="Elements"><span class="glyph list"></span> Last Activity</a>
+									<ul class="submenu">
+										<li><a href="miscellaneous.html" title="Miscellaneous">Miscellaneous</a></li>
+										<li><a href="form.html" title="Form">Form</a></li>
+										<li><a href="notifications.html" title="Notifications">Notifications</a></li>
+										<li><a href="icons.html" title="Icons">Icons</a></li>
+										<li><a href="buttons.html" title="Buttons">Buttons</a></li>
+										<li><a href="file-manager.html" title="File Manager">File Manager</a></li>
+										<li><a href="calendar.html" title="Calendar">Calendar</a></li>
+										<li><a href="960.html" title="960 Grid System">960 Grid System</a></li>
+										<li><a href="boxes-and-typography.html" title="Boxes and Typography">Boxes and Typography</a></li>
+									</ul>
+								</li>
+								<li><a href="gallery.html" title="Charts"><span class="glyph search"></span> Explore</a></li>
+								<li>
+									<a href="#" title="Tables"><span class="glyph like"></span> Badges</a>
+									<ul class="submenu">
+										<li><a href="regular-tables.html" title="Regular Tables">Regular Tables</a></li>
+										<li><a href="interactive-tables.html" title="Interactive Tables">Interactive Tables</a></li>
+									</ul>
+								</li>
+								<li><a href="login.html" title="Logout"><span class="glyph logout"></span> Logout</a></li>
+							</ul>
+						</nav>
+						<!-- /navigation menu -->
+	
+						<!-- bar -->
+						<ul class="bar">
+							<li class="search">
+								<div>
+									<form>
+										<!-- the "L" value represents the icon, don't change -->
+										<input type="submit" value="L" title="Click to search" class="tooltip glyph" />
+										<input type="text" placeholder="What you want to search?" name="s" />
+									</form>
+								</div>
+							</li>
+							<li>
+								<a href="#">
+									<span class="glyph opened-chat"></span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<span class="glyph comment"></span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<span class="glyph settings"></span>
+								</a>
+							</li>
+							<li>
+								<a href="#" title="edit profile" class="tooltip">
+									<span class="glyph user"></span>
+									<span class="text">User</span>
+								</a>
+							</li>
+						</ul>
+					</div>                
+				</div>
+			</header>
+			
+			<!-- MAP --> 
+			<div id="map"></div>
+			<!-- end Map -->
+					<!-- Form -->
+							<!-- Update Location -->
+							 <div class="alert  black air" style="width: 450px">
+								<div class="box-content">
+										<div class="field fullwidth">
+											<!--<label for="post-categories">Post categories: </label>-->
+											<select class="chosen" id="where-categories" data-placeholder="Location ?" multiple>
+												<option>Bandung</option>
+												<option>Jakarta</option>
+												<option>Yogyakarta</option>
+												<option>Surabaya</option>
+												<option>Medan</option>
+											</select>
+											<div class="field fullwidth">
+											<!--<label for="post-categories">Post categories: </label>-->
+											<select class="chosen" id="post-categories" data-placeholder="Looking for ?" multiple>
+												<option>Food</option>
+												<option>Coffe</option>
+												<option>Shop</option>
+											</select>
+										</div>
+										</div>
+										<!--- 
+										<footer class="pane">
+											<input type="submit" class="bt blue" value="Point"  width=100/>
+										</footer>
+										-->
+								</div>
+								<!--- Option list --->                                    
+									<div class="box-content no-inner-space">
+									<ul class="userlist">
+										<li>
+											<div class="avatar"><img src="img/thumbs/media4.jpg" width="40" height="40" alt="avatar" /></div>
+											<div class="info-l">
+												<a href="#" class="title">Ngopdul</a>
+												<span>Jl. Purnawarman, Bandung</span>
+											</div>
+											<div class="info-r">
+												<span class="title">Telephone</span>
+												<span>444 3440000</span>
+											</div>
+										</li>
+										<li>
+											<div class="avatar"><img src="img/thumbs/media6.jpg" width="40" height="40" alt="avatar" /></div>
+											<div class="info-l">
+												<a href="#" class="title">Rumah Kopi</a>
+												<span>Jl. Sesuatu, Bandung</span>
+											</div>
+											<div class="info-r">
+												<span class="title">Telephone</span>
+												<span>444 3440002</span>
+											</div>
+										</li>
+										<li>
+											<div class="avatar"><img src="img/thumbs/media7.jpg" width="40" height="40" alt="avatar" /></div>
+											<div class="info-l">
+												<a href="#" class="title">Kosan 36</a>
+												<span>Jl. Tubagus ismail Dalam, Bandung</span>
+											</div>
+											<div class="info-r">
+												<span class="title">Telephone</span>
+												<span>444 3440003</span>
+											</div>
+										</li>
+									</ul>
+								</div>
+									
+							</div>
+						 </div>
+						<!-- end form -->
+		<!-- /wrapper -->
+		<footer>
+			<div class="container_12">
+				<p>&copy; Copyright 2012 - Your Company | Lead Developer - <a href="#" target="_blank">Your name</a></p>
+			</div>
+		</footer>
+	</body>
+	</html>

@@ -63,7 +63,7 @@
         }
 		nav.main-nav {
 			position: relative;
-			height: 190px;
+			height: 155px;
 			background-color: rgba(0,0,0,0.3);
 			-webkit-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.3);
             box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.3);
@@ -94,7 +94,6 @@
 		nav.main-nav > div.nav-menu > a.title:hover {
 			background-color: rgba(255, 255, 255, 0.100);
 		}
-		nav.main-nav > div.nav-menu > a.title:link,
 		nav.main-nav > div.nav-menu > a.title:visited {
 			background-color: transparent;
 		}
@@ -110,15 +109,62 @@
         span.nav-menu.home {
             /*background-position: 0 -20px;*/
         }
+		nav.main-prof {
+			position: relative;
+			height: 155px;
+			top: 480px;
+			bottom: 0px;
+			background-color: rgba(0,0,0,0.3);
+			-webkit-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.3);
+            box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.3);
+		}
+		 nav.main-prof > div.nav-menu {
+            border: 1px solid transparent;
+            border-width: 1px 0;
+            cursor: pointer;
+            margin: 0px;
+            overflow: visible;
+            outline: 0;
+            vertical-align: baseline;
+            background: transparent;
+            display: block;
+        }
+        nav.main-prof > div.nav-menu > .title {
+            margin: 0;
+            padding: 1px 0 1px 18px;
+            font-weight: 300 !important;
+            font-size: 14px;
+            line-height: 35px;
+            overflow: hidden;
+            color: #adadad !important;
+            text-shadow: none !important;
+            display: block;
+            text-decoration: none;
+        }
+		nav.main-prof > div.nav-menu > a.title:hover {
+			background-color: rgba(255, 255, 255, 0.100);
+		}
+		nav.main-prof > div.nav-menu > a.title:visited {
+			background-color: transparent;
+		}
+		nav.main-prof > div.nav-menu > a.title > span.glyph {
+            display: block;
+            float: left;
+            margin: -1px 16px 0px -8px;
+            background-color: transparent;
+            background-repeat: no-repeat;
+            width: 30px;
+            height: 30px;
+        }
 		nav.notification {
 			padding: 0px 8px 0 8px;
 			position: absolute;
 			left: 0px;
 			right: 0px;
-			top: 204px;
+			top: 167px;
 			bottom: 0px;
 			overflow: scroll;
-			height: 480px;
+			height: 475px;
 		}
 		nav.notification > div.notify-item {
 			/*border: 1px dotted rgba(255,255,255, .3);*/
@@ -155,7 +201,6 @@
             position: absolute;
             
             text-shadow: 1px 1px 1px #FCFCFC;
-            /*background: #E2E2E2 url("https://koding.com/images/finder-back.gif") repeat left top;*/
             -webkit-transition: left .3s linear;
             -moz-transition: left .3s linear;
             -o-transition: left .3s linear;
@@ -192,7 +237,21 @@
             text-align: right;
             text-size: 0.6em;
         }
-        
+		section.detail-sec {
+			background-color: rgba(85, 85, 85, 0.8);
+			right: 0px;
+			top: 0px;
+			bottom: 24px;
+			position: absolute;
+			float: right;
+			z-index: 3;
+			text-shadow: 1px 1px 1px #FCFCFC;
+            -webkit-box-shadow: 0 3px 4px 3px rgba(51, 51, 51, 0.1);
+            box-shadow: 0 3px 4px 3px rgba(51, 51, 51, 1);
+		}
+		section.detail-sec.expanded {
+            left: 70%;
+        }
         aside.body-cont {
             padding: 0px 8px 8px 8px;
             background-color: rgba(0, 0, 0, 0.3);
@@ -264,16 +323,13 @@
     <header class="nav-cont">
 		<nav class="main-nav">
 			<div class="nav-menu">
-				<a class="title"><span class="glyph map-pin"></span> Point.me</a></div>
+				<a class="title" id="btnExp"><span class="glyph map-pin"></span> Point.me</a></div>
 			<div class="nav-menu">
 				<a class="title"><span class="glyph list"></span> Last Activity</a></div>
 			<div class="nav-menu">
 				<a class="title"><span class="glyph search"></span> Explore</a></div>
 			<div class="nav-menu">
 				<a class="title"><span class="glyph like"></span> Badges</a></div>
-			<div class="nav-menu">
-				<a class="title" href="index.html"><span class="glyph logout"></span> Logout</a>
-			</div>
 		</nav>
 		<div class="separator-line"></div>
 		<nav class="notification">
@@ -298,107 +354,30 @@
 			<div class="notify-item"><a class="title"><span class="glyph tag"></span> Notification</a></div>
 			<div class="notify-item"><a class="title"><span class="glyph tag"></span> Notification</a></div>
 		</nav>
+		<nav class="main-prof">
+			<div class="nav-menu">
+				<a class="title" id="btnExp"><span class="glyph user"></span> Profile</a></div>
+			<div class="nav-menu">
+				<a class="title"><span class="glyph mail"></span> Messages</a></div>
+			<div class="nav-menu">
+				<a class="title"><span class="glyph settings"></span> Settings</a></div>
+			<div class="nav-menu">
+				<a class="title" href="index.html"><span class="glyph logout"></span> Logout</a></div>
+		</nav>
     </header>
     <section class="body-cont">
-       <div id="map"></div>
-			<div class="alert grey air" style="width: 450px">
-				<div class="box-content">
-					<div class="field fullwidth">
-						<select class="chosen" id="where-categories" data-placeholder="Location ?" multiple>
-							<option>Bandung</option>
-							<option>Jakarta</option>
-							<option>Yogyakarta</option>
-							<option>Surabaya</option>
-							<option>Medan</option>
-						</select>
-						<div class="field fullwidth">
-							<select class="chosen" id="post-categories" data-placeholder="Looking for ?" multiple>
-								<option>Food</option>
-								<option>Coffe</option>
-								<option>Shop</option>
-							</select>
-						</div>
-					</div>
-				</div>
-				<!--- Option list --->                                    
-				<div class="box-content no-inner-space">
-					<ul class="userlist">
-						<li>
-							<div class="avatar"><img src="img/thumbs/media4.jpg" width="40" height="40" alt="avatar" /></div>
-							<div class="info-l">
-								<a href="#" class="title">Ngopdul</a>
-								<span>Jl. Purnawarman, Bandung</span>
-							</div>
-							<div class="info-r">
-								<span class="title">Telephone</span>
-								<span>444 3440000</span>
-							</div>
-						</li>
-						<li>
-							<div class="avatar"><img src="img/thumbs/media6.jpg" width="40" height="40" alt="avatar" /></div>
-							<div class="info-l">
-								<a href="#" class="title">Rumah Kopi</a>
-								<span>Jl. Sesuatu, Bandung</span>
-							</div>
-							<div class="info-r">
-								<span class="title">Telephone</span>
-								<span>444 3440002</span>
-							</div>
-						</li>
-						<li>
-							<div class="avatar"><img src="img/thumbs/media7.jpg" width="40" height="40" alt="avatar" /></div>
-							<div class="info-l">
-								<a href="#" class="title">Kosan 36</a>
-								<span>Jl. Tubagus ismail Dalam, Bandung</span>
-							</div>
-							<div class="info-r">
-								<span class="title">Telephone</span>
-								<span>444 3440003</span>
-							</div>
-						</li>
-						<li>
-							<div class="avatar"><img src="img/thumbs/media4.jpg" width="40" height="40" alt="avatar" /></div>
-							<div class="info-l">
-								<a href="#" class="title">Ngopdul</a>
-								<span>Jl. Purnawarman, Bandung</span>
-							</div>
-							<div class="info-r">
-								<span class="title">Telephone</span>
-								<span>444 3440000</span>
-							</div>
-						</li>
-						<li>
-							<div class="avatar"><img src="img/thumbs/media6.jpg" width="40" height="40" alt="avatar" /></div>
-							<div class="info-l">
-								<a href="#" class="title">Rumah Kopi</a>
-								<span>Jl. Sesuatu, Bandung</span>
-							</div>
-							<div class="info-r">
-								<span class="title">Telephone</span>
-								<span>444 3440002</span>
-							</div>
-						</li>
-						<li>
-							<div class="avatar"><img src="img/thumbs/media7.jpg" width="40" height="40" alt="avatar" /></div>
-							<div class="info-l">
-								<a href="#" class="title">Kosan 36</a>
-								<span>Jl. Tubagus ismail Dalam, Bandung</span>
-							</div>
-							<div class="info-r">
-								<span class="title">Telephone</span>
-								<span>444 3440003</span>
-							</div>
-						</li>
-					</ul>
-				</div>
-			</div>
+		<div id="map"></div>
     </section>
+	<section class="detail-sec">
+		<input type="button" id="btnCol" value=">">
+	</section>
+	<!--
     <aside class="body-cont">
 		<div>
 			<h2>My Profile</h2>
 			<div class="avatar" style="position: inherit"><img src="img/thumbs/media4.jpg" width="40" height="40" alt="avatar" /></div>
 		</div>
-    </aside>
+    </aside> -->
     <footer class="body-cont">
         <div>Copyright 2013 Point.Me ©</div>
     </footer>
@@ -411,23 +390,26 @@
 			/* console.log("Example A: $(document).ready(handler)"); */
             
 			$('#btnExp').click(function(){
-                $('section').attr('class', 'body-cont expanded');
-                $('footer').attr('class', 'body-cont expanded');
+				$('section.detail-sec').attr('class', 'detail-sec expanded');
+				$('section.body-cont').attr('class', 'body-cont collapsed');
+				$('footer.body-cont').attr('class', 'body-cont collapsed');
 			});
             
             $('#btnCol').click(function(){
-                $('section').attr('class', 'body-cont collapsed');
-                $('footer').attr('class', 'body-cont collapsed');
+				$('section.detail-sec').attr('class', 'detail-sec collapsed');
+                $('footer.body-cont').attr('class', 'body-cont collapsed');
     		});
             
             $('nav').hover(
                 function() {
-                    $('section').attr('class', 'body-cont expanded');
-                    $('footer').attr('class', 'body-cont expanded');
+                    $('section.body-cont').attr('class', 'body-cont expanded');
+					/*$('section.detail-sec').attr('class', 'detail-sec expanded')*/
+                    $('footer.body-cont').attr('class', 'body-cont expanded');
                 },
                 function() {
-                    $('section').attr('class', 'body-cont collapsed');
-                    $('footer').attr('class', 'body-cont collapsed');
+                    $('section.body-cont').attr('class', 'body-cont collapsed');
+					/*$('section.detail-sec').attr('class', 'detail-sec collapsed');*/
+                    $('footer.body-cont').attr('class', 'body-cont collapsed');
                 }
             )
 		});
